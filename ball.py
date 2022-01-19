@@ -1,5 +1,5 @@
 from turtle import Turtle
-
+import random
 class Ball(Turtle):
 
     def __init__(self):
@@ -16,5 +16,11 @@ class Ball(Turtle):
         self.goto(new_x, new_y)
 
     def bounce(self):
-        self.y_move = - self.y_move
+        self.y_move *= -1
         self.move()
+    def hit(self):
+        self.x_move *= -1
+        self.move()
+    def miss(self):
+        self.goto(0, random.randint(-250, 250))
+
